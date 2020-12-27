@@ -10,30 +10,17 @@
     <script src="Build/UnityLoader.js"></script>
     <script>
 		function ToggleFullScreen() {
-			var isInFullScreen = (document.fullscreenElement && document.fullscreenElement !== null) ||
-			(document.webkitFullscreenElement && document.webkitFullscreenElement !== null) ||
-			(document.mozFullScreenElement && document.mozFullScreenElement !== null) ||
-			(document.msFullscreenElement && document.msFullscreenElement !== null);
+			var isInFullScreen = (document.fullscreenElement && document.fullscreenElement !== null);
 			
 			var element = document.body.getElementsByClassName("webgl-content")[0];
 			
 			if (!isInFullScreen) {
-				document.getElementById("fullScreenButton").style.backgroundImage="url('TemplateData/img/fullScreen_off.png')";
-				return (element.requestFullscreen ||
-				element.webkitRequestFullscreen ||
-				element.mozRequestFullScreen ||
-				element.msRequestFullscreen).call(element);
+				
+				return (element.requestFullscreen).call(element);
 			}
 			else {
-				document.getElementById("fullScreenButton").style.backgroundImage="url('TemplateData/img/fullScreen_on.png')";
 				if (document.exitFullscreen) {
 					document.exitFullscreen();
-				} else if (document.webkitExitFullscreen) {
-					document.webkitExitFullscreen();
-				} else if (document.mozCancelFullScreen) {
-					document.mozCancelFullScreen();
-				} else if (document.msExitFullscreen) {
-					document.msExitFullscreen();
 				}
 			}
 		}
