@@ -3,34 +3,23 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | New Unity Project</title>
+    <title>Unity WebGL Player | VTechExpo</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
     <script src="TemplateData/UnityProgress.js"></script>
     <script src="Build/UnityLoader.js"></script>
-    
+    <script>
+      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/Build.json", {onProgress: UnityProgress});
+    </script>
   </head>
   <body>
     <div class="webgl-content">
       <div id="unityContainer" style="width: 960px; height: 600px"></div>
-      <button id="fullScreenButton" onclick="ToggleFullScreen()"></button>
+      <div class="footer">
+        <div class="webgl-logo"></div>
+        <div class="fullscreen" onclick="document.makeFullscreen('unityContainer')"></div>
+        <div class="title">VTechExpo</div>
+      </div>
     </div>
   </body>
-	<script>
-		function ToggleFullScreen() {
-			var isInFullScreen = (document.fullscreenElement && document.fullscreenElement !== null);
-			
-			var element = document.body.getElementsByClassName("webgl-content")[0];
-			
-			if (!isInFullScreen) {
-				
-				return (element.requestFullscreen).call(element);
-			}
-			else {
-				if (document.exitFullscreen) {
-					document.exitFullscreen();
-				}
-			}
-		}
-    </script>
 </html>
