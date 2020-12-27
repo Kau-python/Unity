@@ -8,7 +8,15 @@
     <link rel="stylesheet" href="TemplateData/style.css">
     <script src="TemplateData/UnityProgress.js"></script>
     <script src="Build/UnityLoader.js"></script>
-    <script>
+    
+  </head>
+  <body>
+    <div class="webgl-content">
+      <div id="unityContainer" style="width: 960px; height: 600px"></div>
+      <button id="fullScreenButton" onclick="ToggleFullScreen()"></button>
+    </div>
+  </body>
+	<script>
 		function ToggleFullScreen() {
 			var isInFullScreen = (document.fullscreenElement && document.fullscreenElement !== null);
 			
@@ -25,11 +33,4 @@
 			}
 		}
     </script>
-  </head>
-  <body>
-    <div class="webgl-content">
-      <div id="unityContainer" style="width: 960px; height: 600px"></div>
-      <button id="fullScreenButton" onclick="ToggleFullScreen()"></button>
-    </div>
-  </body>
 </html>
